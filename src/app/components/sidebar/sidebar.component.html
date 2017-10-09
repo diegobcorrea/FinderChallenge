@@ -1,0 +1,33 @@
+
+<div class="sidebar">
+
+  <div class="col-xs-12" id="sticky-sidebar">
+
+    <h4>Categorías</h4>
+
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let cat of _bs.categories | keys">
+        <span (click)="byCategory(cat.key)">{{ cat.value.label }}</span>
+      </li>
+    </ul>
+
+
+    <h4>Presentación</h4>
+
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let cat of _bs.edition | keys">
+        <span (click)="byMode(cat.value.id)">{{ cat.value.label }}</span>
+      </li>
+    </ul>
+
+    <h4>Idioma</h4>
+
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let cat of _bs.lang | keys">
+        <span (click)="byLanguage(cat.value.id)">{{ cat.value.label }}</span>
+      </li>
+    </ul>
+
+  </div>
+
+</div>

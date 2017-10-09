@@ -1,0 +1,44 @@
+
+<nav class="navbar navbar-expand navbar-dark bg-dark d-flex justify-content-between flex-column flex-md-row bd-navbar fixed-top">
+
+  <a href="#" class="navbar-brand">{{ title | uppercase }}</a>
+
+  <form class="form-inline col-md-4 col-md-pull-4">
+
+    <input class="form-control awesomplete"
+           type="text"
+           name="search"
+           [(ngModel)]="search"
+           list="mylist"
+           minChars="3"
+           maxItems="7" />
+
+    <datalist id="mylist">
+      <option *ngFor="let book of _bs.showBooks">{{ book.title }}</option>
+    </datalist>
+
+<!--<input auto-complete-->
+           <!--nofill-->
+           <!--class="form-control col-md-12 auto-complete"-->
+           <!--type="text"-->
+           <!--name="search"-->
+           <!--placeholder="Introduzca nombre del libro"-->
+           <!--[(ngModel)]="search"-->
+           <!--[source]="_bs.showBooks"-->
+           <!--[list-formatter]="autocompleListFormatter"-->
+           <!--display-property-name="title"-->
+           <!--no-match-found-text="No hay libros que coincidan"-->
+           <!--match-formatted="true"-->
+           <!--[min-chars]="3"-->
+           <!--[max-num-list]="7">-->
+
+    <button class="btn btn-outline-success col-md-4"
+            type="submit"
+            [disabled]="search.length < 3"
+            (click)="saveSearchValue(search)">
+      Buscar
+    </button>
+
+  </form>
+
+</nav>

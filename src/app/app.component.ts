@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BooksService } from './services/books.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+
+  title = 'Frontend Finder';
+  search:string = '';
+
+  constructor( public _bs:BooksService ) {}
+
+  autocompleListFormatter = (data: any) => {
+    let html = `${data.title}`;
+    return html;
+  }
+
 }
